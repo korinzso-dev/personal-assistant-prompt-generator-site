@@ -1,0 +1,453 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Personal Assistant Prompt Generator | KorYX</title>
+
+<meta name="description" content="Personal Assistant Prompt Generator — a powerful HTML-based tool for building a structured, personalized AI assistant.">
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+        background: #0b1020;
+        color: #f4f7fb;
+        line-height: 1.6;
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    .container {
+        width: min(1120px, 92%);
+        margin: auto;
+    }
+
+    header {
+        padding: 24px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .brand {
+        font-size: 1.25rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+    }
+
+    .brand span {
+        opacity: 0.55;
+        font-weight: 500;
+    }
+
+    .hero {
+        padding: 100px 0 80px;
+        text-align: center;
+    }
+
+    .badge {
+        display: inline-block;
+        padding: 7px 14px;
+        border: 1px solid rgba(255,255,255,0.14);
+        border-radius: 999px;
+        font-size: 0.82rem;
+        color: #b9c4d8;
+        margin-bottom: 25px;
+    }
+
+    h1 {
+        max-width: 900px;
+        margin: auto;
+        font-size: clamp(2.5rem, 6vw, 5rem);
+        line-height: 1.05;
+        letter-spacing: -0.04em;
+    }
+
+    .hero p {
+        max-width: 700px;
+        margin: 28px auto 0;
+        font-size: 1.18rem;
+        color: #b9c4d8;
+    }
+
+    .cta {
+        display: inline-block;
+        margin-top: 38px;
+        padding: 16px 30px;
+        border-radius: 10px;
+        background: #ffffff;
+        color: #0b1020;
+        font-weight: 800;
+        font-size: 1rem;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .cta:hover {
+        transform: translateY(-2px);
+        opacity: 0.9;
+    }
+
+    .price {
+        margin-top: 14px;
+        color: #8f9bb0;
+        font-size: 0.95rem;
+    }
+
+    section {
+        padding: 75px 0;
+    }
+
+    .section-title {
+        text-align: center;
+        font-size: 2rem;
+        margin-bottom: 15px;
+    }
+
+    .section-intro {
+        max-width: 680px;
+        margin: 0 auto 45px;
+        text-align: center;
+        color: #aeb9cc;
+    }
+
+    .features {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .feature {
+        padding: 28px;
+        border: 1px solid rgba(255,255,255,0.09);
+        background: rgba(255,255,255,0.035);
+        border-radius: 14px;
+    }
+
+    .feature h3 {
+        margin-bottom: 10px;
+        font-size: 1.1rem;
+    }
+
+    .feature p {
+        color: #aeb9cc;
+        font-size: 0.95rem;
+    }
+
+    .how {
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .step {
+        display: flex;
+        gap: 20px;
+        padding: 24px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .number {
+        min-width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        border: 1px solid rgba(255,255,255,0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+    }
+
+    .step h3 {
+        margin-bottom: 5px;
+    }
+
+    .step p {
+        color: #aeb9cc;
+    }
+
+    .purchase {
+        text-align: center;
+        padding: 90px 20px;
+        margin: 30px auto 80px;
+        border-radius: 20px;
+        background: rgba(255,255,255,0.045);
+        border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .purchase h2 {
+        font-size: 2.3rem;
+        margin-bottom: 15px;
+    }
+
+    .purchase p {
+        color: #aeb9cc;
+        max-width: 650px;
+        margin: auto;
+    }
+
+    footer {
+        border-top: 1px solid rgba(255,255,255,0.08);
+        padding: 30px 0;
+        color: #7f8ba0;
+        font-size: 0.85rem;
+    }
+
+    .footer-content {
+        display: flex;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    @media (max-width: 800px) {
+        .features {
+            grid-template-columns: 1fr;
+        }
+
+        .hero {
+            padding-top: 70px;
+        }
+
+        .footer-content {
+            flex-direction: column;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container nav">
+        <div class="brand">KorYX <span>Digital Tools</span></div>
+        <div>AI Productivity</div>
+    </div>
+</header>
+
+<main>
+
+    <section class="hero">
+        <div class="container">
+
+            <div class="badge">
+                AI Productivity Tool
+            </div>
+
+            <h1>
+                Build Your Personal AI Assistant
+            </h1>
+
+            <p>
+                Personal Assistant Prompt Generator helps you create a structured,
+                personalized AI assistant designed around the way you actually work.
+            </p>
+
+            <a href="#purchase" class="cta">
+                GET THE GENERATOR
+            </a>
+
+            <div class="price">
+                One-time purchase · €19
+            </div>
+
+        </div>
+    </section>
+
+
+    <section>
+        <div class="container">
+
+            <h2 class="section-title">
+                More Than Just a Prompt
+            </h2>
+
+            <p class="section-intro">
+                Instead of starting from a blank chat window, build a structured
+                foundation for an AI assistant that understands your role,
+                objectives, preferences and working style.
+            </p>
+
+            <div class="features">
+
+                <div class="feature">
+                    <h3>Structured Setup</h3>
+                    <p>
+                        Build your assistant through a guided structure instead of
+                        trying to write one enormous prompt from scratch.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <h3>Personalized Output</h3>
+                    <p>
+                        Define the role, responsibilities, behaviour, communication
+                        style and working principles of your AI assistant.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <h3>Ready to Use</h3>
+                    <p>
+                        Generate a complete assistant prompt that you can copy
+                        directly into your preferred AI platform.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <h3>Runs in Your Browser</h3>
+                    <p>
+                        The generator is delivered as a standalone HTML application
+                        that runs locally in your browser.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <h3>No Subscription</h3>
+                    <p>
+                        Pay once and use the generator without a recurring monthly
+                        software subscription.
+                    </p>
+                </div>
+
+                <div class="feature">
+                    <h3>Built for Professionals</h3>
+                    <p>
+                        Designed for professionals who want more structure,
+                        consistency and control from their AI tools.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <section>
+        <div class="container">
+
+            <h2 class="section-title">
+                How It Works
+            </h2>
+
+            <p class="section-intro">
+                Create your personalized AI assistant in a few simple steps.
+            </p>
+
+            <div class="how">
+
+                <div class="step">
+                    <div class="number">1</div>
+                    <div>
+                        <h3>Define Your Assistant</h3>
+                        <p>
+                            Describe the role and purpose of the assistant you want
+                            to create.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="number">2</div>
+                    <div>
+                        <h3>Configure Its Behaviour</h3>
+                        <p>
+                            Establish responsibilities, principles, communication
+                            preferences and working logic.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="number">3</div>
+                    <div>
+                        <h3>Generate Your Prompt</h3>
+                        <p>
+                            The generator creates a structured, ready-to-use
+                            personal assistant prompt.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="number">4</div>
+                    <div>
+                        <h3>Use It With Your AI</h3>
+                        <p>
+                            Copy the generated prompt into your preferred AI
+                            platform and start working with your assistant.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <section id="purchase">
+
+        <div class="container">
+
+            <div class="purchase">
+
+                <h2>
+                    Ready to Build Your AI Assistant?
+                </h2>
+
+                <p>
+                    Get the Personal Assistant Prompt Generator and create a
+                    structured AI assistant tailored to the way you work.
+                </p>
+
+                <!-- Lemon Squeezy checkout button will be added here -->
+
+                <a href="#" class="cta">
+                    GET THE GENERATOR — €19
+                </a>
+
+                <div class="price">
+                    One-time payment · Digital product
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<footer>
+    <div class="container footer-content">
+
+        <div>
+            © 2026 KorYX Digital Tools
+        </div>
+
+        <div>
+            Personal Assistant Prompt Generator
+        </div>
+
+    </div>
+</footer>
+
+</body>
+</html>
+```
